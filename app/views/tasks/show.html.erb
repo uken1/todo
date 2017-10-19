@@ -1,0 +1,23 @@
+<h1>タスク詳細</h1>
+<div id="notice"><%= notice %></div>
+
+<table>
+    <tr>
+         <th>状態</th>
+         <td><%= humanize_status(@task.status) %></td>
+    </tr>
+    <tr>
+         <th>タスク名</th>
+         <td><%= @task.name %></td>
+    </tr>
+    <tr>
+         <th>締め切り</th>
+         <td><%= humanize_date(@task.deadline) %></td>
+    </tr>
+</table>
+
+<p>
+    <%= link_to "編集", edit_task_path(@task) %> |
+    <%= link_to "戻る", task_path %> |
+</p>
+

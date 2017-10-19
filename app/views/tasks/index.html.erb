@@ -1,0 +1,35 @@
+<h1>タスク一覧</h1>
+<div id="notice"><%= notice %></div>
+
+<p>
+   <%=link_to "新規作成", new_task_path %> |
+   <%=link_to "未完了タスク一覧", unclosed_tasks_path %>
+</p>
+
+<%= form_tag tasks_path, :method => :get do %>
+ <%= text_field_tag :name, @name %>
+ <%= submit_tag "検索" %>
+<% end %>
+
+<table>
+    <tr>
+         <th>状態</th>
+         <th>タスク名</th>
+         <th>締め切り</th>
+         <th></th>
+    </tr>
+<% @tasks.each do |task| %>
+    <tr>
+         <td><%= task.status %></td>
+         <td><%= task.name %></td>
+         <td><%= task.deadline %></td>
+         <td>
+          <%= link_to "表示", task_path(task) %> |
+          <%= link_to "編集", edit_task_path(task) %> |
+          <%= link_to "削除", task_path(task),method: :delete,
+                              :data => {confirm: "本当に削除しますか？"} %> |
+          <%= link_to "完了", done_task_path(task), :method => :put %>
+         </td>
+    </tr>
+<% end %>
+</table>

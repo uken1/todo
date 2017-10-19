@@ -1,0 +1,85 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+body {
+    background-color: silver
+    color:black;
+    font-size: 90;
+    font-family: Meiryo,sans-serif;
+    margin: 0; padding: 0;
+}
+
+div#container{
+    background-color: white;
+    width:860px;
+    margin: 0 auto;
+    padding: 10px 20px 20px
+}
+
+div#header{
+    padding-bottom: 6px;
+    border-bottom: 2px solid silver;
+    margin-bottom: 20px
+}
+
+div#header img {
+    vertical-align: top;
+}
+
+h1 {
+    font-size: 150%; margin: 0 0 16px;
+}
+
+table {
+    border-collapse: collapse;
+}
+table, table th, table td { border: 1px solid #cccc; }
+
+table th {
+    background-color: #eef;
+}
+table td, table th {
+    padding: 3px;
+}
+
+div.field, div.actions {
+    margin-bottom: 10px;
+}
+
+div#error_explanation {
+    background-color: #fee;
+    border: 1px solid #ecc;
+    padding: 3px 6px;
+    margin: 0 0 1em;
+}
+
+div#error_explanation h2 {
+    font-size: 1em;
+    color: red;
+    margin: 0 0 4px;
+}
+
+div#error_explanation u1 {
+    margin: 0;
+    padding-left: 1.5em;
+}
+
+div.field_with_errors {
+    background-color: #fcc;
+    padding: 2px
+}
+#notice { color: green; }
+#notice { color: red; }
