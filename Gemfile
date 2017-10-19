@@ -49,5 +49,8 @@ group :development, :test do
   #教科書の5-10のHirb設定
   gem "hirb"
   gem "hirb-unicode"
+  
+  #DIVE07 Heroku設定
+  gem 'rails_12factor', group: :production
 end
 
