@@ -43,13 +43,15 @@ class TasksController < ApplicationController
   
   def unclosed
 # @tasks = Task.where(:status => false)
-   @tasks = Task.unclosed
+# @tasks = Task.unclosedをP9-11で以下に変更
+　 @tasks = @user.tasks.unclosed
    render :action => "index"
   end
   
   def done
    @tasks = Task.update(:status => true)
-   redirect_to tasks_path
+# redirect_to tasks_pathをP9-11で以下に変更
+   redirect_to user_tasks_path(@user)
   end
   
   private

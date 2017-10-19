@@ -52,5 +52,6 @@ group :development, :test do
   
   #DIVE07 Heroku設定
   gem 'rails_12factor', group: :production
+  
 end
 
