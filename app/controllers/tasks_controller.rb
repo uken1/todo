@@ -1,26 +1,28 @@
 class TasksController < ApplicationController
+  before_action :find_user
   before_action :find_task, :only => [:show, :edit, :update, :destroy, :done]
   
   def index
     # @task = Task.all
     @name = params[:name]
-    @tasks = Task.search(@name)
+    @tasks = @user.tasks.search(@name)
   end
 
   def show
   end
 
   def new
-    @task = Task.new(:status => false)
+    @task = @user.tasks.build(:status => false)
   end
 
   def edit
   end
   
   def create
-    @task = Task.new(task_params)
+    @task = @user.tasks.build(task_params)
+    
     if @task.save
-      redirect_to task_path(@task), :notice => "タスクを登録しました。"
+      redirect_to user_tasks_path(@user,@task), :notice => "タスクを登録しました。"
     else
       redirect_to :action => "new"
     end
@@ -28,7 +30,7 @@ class TasksController < ApplicationController
 
   def update
     if @task.update(task_params)
-      redirect_to task_path(@task), :notice => "タスクを登録しました。"
+      redirect_to user_tasks_path(@user,@task), :notice => "タスクを登録しました。"
     else
       render :action => "edit"
     end
@@ -36,7 +38,7 @@ class TasksController < ApplicationController
   
   def destroy
    @task.destroy
-   redirect_to tasks_path, :alert => "タスクを削除しました。"
+   redirect_to user_tasks_path(@user), :alert => "タスクを削除しました。"
   end
   
   def unclosed
@@ -55,7 +57,12 @@ class TasksController < ApplicationController
     params.require(:task).permit(:name,:deadline,:status)
   end
   
-  def find_task
-    @task = Task.find(params[:id])
+  def find_user
+    @user = User.find(params[:user_id])
   end
+  
+  def find_task
+    @task = @user.tasks.find(params[:id])
+  end
+  
 end
