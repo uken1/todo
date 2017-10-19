@@ -7,7 +7,7 @@ class Task < ActiveRecord::Base
     scope :recently,    lambda { where("deadline <= ?", 3.days.since) }
     scope :search,      lambda { |name| where("name like ?", "%#{name}") if name.present? }
 
-    validates :name, :presence => true, :uniqueness => true
+    validates :name, :presence => true, :uniqueness => {:scope => :user_id}
     validates :status, :inclusion => [true, false]
     validates :deadline, :presence => true
 end

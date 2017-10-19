@@ -2,11 +2,11 @@
 <div id="notice"><%= notice %></div>
 
 <p>
-   <%=link_to "新規作成", new_task_path %> |
-   <%=link_to "未完了タスク一覧", unclosed_tasks_path %>
+   <%=link_to "新規作成", new_user_task_path(@user) %> |
+   <%=link_to "未完了タスク一覧", unclosed_tasks_path(@user) %>
 </p>
 
-<%= form_tag tasks_path, :method => :get do %>
+<%= form_tag user_tasks_path(@user), :method => :get do %>
  <%= text_field_tag :name, @name %>
  <%= submit_tag "検索" %>
 <% end %>
@@ -24,11 +24,11 @@
          <td><%= task.name %></td>
          <td><%= task.deadline %></td>
          <td>
-          <%= link_to "表示", task_path(task) %> |
-          <%= link_to "編集", edit_task_path(task) %> |
-          <%= link_to "削除", task_path(task),method: :delete,
+          <%= link_to "表示", user_task_path(@user,task) %> |
+          <%= link_to "編集", edit_user_task_path(@user,task) %> |
+          <%= link_to "削除", user_task_path(@user,task),method: :delete,
                               :data => {confirm: "本当に削除しますか？"} %> |
-          <%= link_to "完了", done_task_path(task), :method => :put %>
+          <%= link_to "完了", done_user_task_path(@user,task), :method => :put %>
          </td>
     </tr>
 <% end %>
