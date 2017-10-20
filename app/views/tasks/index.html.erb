@@ -3,7 +3,7 @@
 
 <p>
    <%=link_to "新規作成", new_user_task_path(@user) %> |
-   <%=link_to "未完了タスク一覧", unclosed_tasks_path(@user) %>
+   <%=link_to "未完了タスク一覧", unclosed_user_tasks_path(@user) %>
 </p>
 
 <%= form_tag user_tasks_path(@user), :method => :get do %>

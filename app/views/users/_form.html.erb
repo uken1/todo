@@ -19,6 +19,18 @@
     <%= f.label :email %><br>
     <%= f.text_field :email %>
   </div>
+  
+  <% if action_name.in? ["new", "create"] %>
+    <div class = "field">
+      <%= f.label :password %><br />
+      <%= f.password_field :password %>
+    </div>
+    <div class = "field">
+      <%= f.label :password_cofirmation %><br />
+      <%= f.password_field :password_cofirmation %>
+    </div>
+  <% end %>
+  
   <div class="field">
     <%= f.label :birthday %><br>
     <%= f.date_select :birthday, :start_year => 1940,

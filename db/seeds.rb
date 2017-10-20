@@ -13,6 +13,13 @@ dhh = User.create do |user|
      user.password = "password"
 end
 
+dhh = User.create do |user|
+     user.name = "matz"
+     user.email = "matz@ruby.com"
+     user.birthday = "1965-04-14"
+     user.password = "password"
+end
+
 (1..20).each do |i|
     Task.create do |task|
         task.name = "task #{i}"

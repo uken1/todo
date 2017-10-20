@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'session/new'
+
   root "pages#index"
   get "about", :to => "pages#about", :as => "about"
   get "place", :to => "pages#place", :as => "place"
