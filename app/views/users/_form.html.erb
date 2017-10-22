@@ -12,27 +12,27 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br>
+    <%= f.label :name, '名前'  %><br>
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :email %><br>
+    <%= f.label :email, 'メールアドレス'  %><br>
     <%= f.text_field :email %>
   </div>
   
   <% if action_name.in? ["new", "create"] %>
     <div class = "field">
-      <%= f.label :password %><br />
+      <%= f.label :password, 'パスワード'  %><br />
       <%= f.password_field :password %>
     </div>
     <div class = "field">
-      <%= f.label :password_cofirmation %><br />
+      <%= f.label :password_cofirmation, 'パスワード確認'  %><br />
       <%= f.password_field :password_cofirmation %>
     </div>
   <% end %>
   
   <div class="field">
-    <%= f.label :birthday %><br>
+    <%= f.label :birthday, '生年月日'  %><br>
     <%= f.date_select :birthday, :start_year => 1940,
                                  :end_year => Date.today.year,
                                  :use_month_numbers => true %>
