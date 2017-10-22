@@ -1,10 +1,14 @@
 Rails.application.routes.draw do
 
-  get 'session/new'
+  get 'sessions/new'
 
   root "pages#index"
   get "about", :to => "pages#about", :as => "about"
   get "place", :to => "pages#place", :as => "place"
+  
+  get 'login',    :to => 'sessions#new',      :as => 'login'
+  get 'logout',   :to => 'sessions#destroy',  :as => 'logout'
+  post 'sessions', :to => 'sessions#create',  :as => 'sessions'
 
   resources :users do
     resources :tasks do

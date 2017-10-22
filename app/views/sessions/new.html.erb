@@ -1,0 +1,15 @@
+<h1>ログイン</h1>
+<p class="alert"><%= flash[:alert] %></p>
+<%= form_tag sessions_path do %>
+  <div class="field">
+    <%= label_tag :email, "メールアドレス" %><br />
+    <%= text_field_tag :email %>
+  </div>
+  <div class="field">
+    <%= label_tag :password, "パスワード" %><br />
+    <%= password_field_tag :password %>
+  </div>
+  <div class="actions">
+    <%= submit_tag "ログイン" %>
+  </div>
+<% end %>

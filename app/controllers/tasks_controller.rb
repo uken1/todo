@@ -44,7 +44,7 @@ class TasksController < ApplicationController
   def unclosed
 # @tasks = Task.where(:status => false)
 # @tasks = Task.unclosedをP9-11で以下に変更
-　 @tasks = @user.tasks.unclosed
+   @tasks = @user.tasks.unclosed
    render :action => "index"
   end
   
