@@ -13,7 +13,7 @@ dhh = User.create do |user|
      user.password = "password"
 end
 
-dhh = User.create do |user|
+matz = User.create do |user|
      user.name = "matz"
      user.email = "matz@ruby.com"
      user.birthday = "1965-04-14"

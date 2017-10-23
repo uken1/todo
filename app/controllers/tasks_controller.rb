@@ -5,7 +5,8 @@ class TasksController < ApplicationController
   def index
     # @task = Task.all
     @name = params[:name]
-    @tasks = @user.tasks.search(@name)
+    #STEp11-10で追加 @tasks = @user.tasks.search(@name)
+    @tasks = @user.tasks.search(@name).by_tag(params[:tag])
   end
 
   def show
@@ -49,7 +50,8 @@ class TasksController < ApplicationController
   end
   
   def done
-   @tasks = Task.update(:status => true)
+# @tasks = Task.update(:status => true)をP9-11で以下に修正
+   @task.update(:status => true)
 # redirect_to tasks_pathをP9-11で以下に変更
    redirect_to user_tasks_path(@user)
   end
@@ -66,5 +68,5 @@ class TasksController < ApplicationController
   def find_task
     @task = @user.tasks.find(params[:id])
   end
-  
+
 end

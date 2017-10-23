@@ -12,13 +12,16 @@ Rails.application.routes.draw do
 
   resources :users do
     resources :tasks do
-      collection do
-       get "unclosed"
-      end
-    
-      member do
-       get "done"
-      end
+      #STEp11-6で追加
+      resources :tags, :only => [:create, :destroy]
+        collection do
+          get "unclosed"
+        end
+
+        member do
+  #  get "done"でSTEp6-18のputとご設定のため、No Routeエラーで時間が要した。
+          put "done"
+        end
     end
   end
   
