@@ -9,7 +9,7 @@ class Task < ActiveRecord::Base
     scope :closed,      lambda { where(:status => true) }
     scope :unclosed,    lambda { where.not(:status => true) }
     scope :recently,    lambda { where("deadline <= ?", 3.days.since) }
-    scope :search,      lambda { |name| where("name like ?", "%#{name}") if name.present? }
+    scope :search,      lambda { |name| where("name like ?", "%#{name}%") if name.present? }
     #STEp11-10で追加
     scope :by_tag,      lambda {|tag| includes(:tags).where(:tags => {:name => tag}) if tag.present? }    
 
