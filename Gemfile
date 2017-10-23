@@ -40,7 +40,10 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 group :development do
   gem 'letter_opener_web'
 end
-#ここまで
+
+gem 'devise'
+#ここまで、DIVEのどこでdeviseをインストールしたのか不明。
+# ググってrails g devise:installでインストール。
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
