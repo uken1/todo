@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+# リマインド通知機能をググって gem wheneverを試してみる。
+# https://www.school.ctc-g.co.jp/columns/masuidrive/masuidrive22.html
+gem 'whenever', require: false
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.3'
