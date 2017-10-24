@@ -22,14 +22,14 @@ class Task < ActiveRecord::Base
     
     # リマインド通知機能2/3　24時間以内のToDoならtrueを返す。
     def todays_todo?
-     if !schedule_sta.nil?
-       schedule_sta < Time.now.since(24.hours) && schedule_sta >= Time.zone.now
+     if !deadline.nil?
+       deadline < Time.now.since(24.hours) && deadline >= Time.zone.now
      end
     end
      
     private
     # リマインダ通知機能3/3heroku addons:create scheduler:standardがtrueの時はschedule_staを必須とする
     def need_reminder?
-      reminder_mail == true
+      status == true
     end
 end
