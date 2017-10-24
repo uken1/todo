@@ -25,6 +25,7 @@ class Task < ActiveRecord::Base
      if !schedule_sta.nil?
        schedule_sta < Time.now.since(24.hours) && schedule_sta >= Time.zone.now
      end
+    end
      
     private
     # リマインダ通知機能3/3heroku addons:create scheduler:standardがtrueの時はschedule_staを必須とする
