@@ -40,6 +40,8 @@ class TasksController < ApplicationController
   def destroy
    @task.destroy
    redirect_to user_tasks_path(@user), :alert => "タスクを削除しました。"
+# リマインド通知機能実装　テストメール用の設定
+   NoticeMailer.sendmail_blog.deliver
   end
   
   def unclosed

@@ -5,9 +5,10 @@ class NoticeMailer < ApplicationMailer
   #
   #   en.notice_mailer.sendmail_blog.subject
   #
-  def sendmail_blog(user)
-    @user = user
+  def sendmail_blog
+    @greeting = "TEST"
 
-    mail to: "#{@user.email}", subject: "Hello, #{@user.name}"
+    mail to: "aj07333@yahoo.co.jp",
+         subject: 'テストメールを送信しました。'
   end
 end
