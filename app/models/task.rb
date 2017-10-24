@@ -18,18 +18,19 @@ class Task < ActiveRecord::Base
     validates :status, :inclusion => [true, false]
     
     # リマインド通知機能実装前1/3　validates :deadline, :presence => true
-    validates :deadline, :presence => true, if: :need_reminder?
+    # 試しに戻してみる　validates :deadline, :presence => true, if: :need_reminder?
+    validates :deadline, :presence => true
     
     # リマインド通知機能2/3　24時間以内のToDoならtrueを返す。
     def todays_todo?
-     if !deadline.nil?
+    # if !deadline.nil?
        deadline < Time.now.since(24.hours) && deadline >= Time.zone.now
-     end
+    # end
     end
      
-    private
-    # リマインダ通知機能3/3heroku addons:create scheduler:standardがtrueの時はstatusを必須とする
-    def need_reminder?
-      status == false
-    end
+    # private
+    ## リマインダ通知機能3/3heroku addons:create scheduler:standardがtrueの時はstatusを必須とする
+    #def need_reminder?
+    #  status == false
+    #end
 end
