@@ -28,8 +28,8 @@ class Task < ActiveRecord::Base
     end
      
     private
-    # リマインダ通知機能3/3heroku addons:create scheduler:standardがtrueの時はschedule_staを必須とする
+    # リマインダ通知機能3/3heroku addons:create scheduler:standardがtrueの時はstatusを必須とする
     def need_reminder?
-      status == true
+      status == false
     end
 end
