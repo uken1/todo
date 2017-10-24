@@ -1,3 +1,13 @@
-RemindMailer#remind
+[<%= "#{Date.today}" %>]のリマインド
 
-<%= @greeting %>, find me in app/views/remind_mailer/remind.text.erb
+<%= @user.email[/[a-z\d\w\-.]+/,0] %>さん、おはようございます！
+
+本日の予定
+
+  <% @todays_tasks.each do |tdl| %>
+  <%= tdl.schedule_sta.hour %>時<%= tdl.schedule_sta.min%>分〜<%= tdl.title %>
+  <% end %>
+
+「千里の道も一歩から」何事にも動き出す最初のステップがあります！
+
+habitize.jp
