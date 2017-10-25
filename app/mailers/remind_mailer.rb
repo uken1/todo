@@ -8,7 +8,10 @@ class RemindMailer < ApplicationMailer
   def remind(user)
     @user = User.find_by(id: user)
     @tasks = @user.tasks
-    @todays_tasks = @tasks.select{|tdl| tdl.todays_todo? && tdl.status = false }
-    mail(to: @user.email, subject: "[#{Date.today}]のリマインド")
+#    @todays_tasks = @tasks.select{|tdl| tdl.todays_todo? && tdl.status = false }
+@todays_tasks = @tasks.select{|tdl| tdl.deadline ==  Date.today + 1 && tdl.status == false }
+#    mail (to: @user.email, subject: "[#{Date.today}]のリマインド")
+     mail to: @user.email, 
+         subject: "[#{Date.today}]のリマインド"
   end
 end
