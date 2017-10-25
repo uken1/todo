@@ -15,30 +15,7 @@
          <td><%= humanize_date(@task.deadline) %></td>
     </tr>
     
-    <tr>
-        <th>タグ</th>
-        <td>
-            <table>
-                <% @task.tags.each do |tag| %>
-                  <tr>
-                      <td>
-                          <%= link_to tag.name, user_tasks_path(@user, :tag => tag.name) %>
-                          <td>
-                              <%= link_to "削減", user_task_tag_path(@user, @task, tag), :method => :delete %>
-                          </td>
-                      </td>
-                            
-                  </tr>
-                <% end %>
-                <tr>
-                    <%= form_tag(user_task_tags_path(@user, @task)) do %>
-                      <td><%= text_field_tag :name %></td>
-                      <td><%= submit_tag "追加" %></td>
-                    <% end %>
-                </tr>
-            </table>
-        </td>
-    </tr>
+
     
 </table>
 

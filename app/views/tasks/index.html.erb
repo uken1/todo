@@ -16,7 +16,7 @@
          <th>状態</th>
          <th>タスク名</th>
          <th>締め切り</th>
-         <th>タグ</th>
+
          <th></th>
     </tr>
 <% @tasks.each do |task| %>
@@ -24,7 +24,7 @@
          <td><%= humanize_status(task.status) %></td>
          <td><%= task.name %></td>
          <td><%= humanize_date(task.deadline) %></td>
-         <td><%= link_to_tags(task.tags) %></td>
+
          <td>
           <%= link_to "表示", user_task_path(@user,task) %> |
           <%= link_to "編集", edit_user_task_path(@user,task) %> |
