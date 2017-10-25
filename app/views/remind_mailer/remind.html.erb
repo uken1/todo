@@ -2,7 +2,7 @@
 
 <p><%= @user.email[/[a-z\d\w\-.]+/,0] %>さん、おはようございます！</p>
 
-<h3>明日締め切りが迫ってますよ！</h3>
+<h3>締め切り注意！</h3>
 <ul>
   <% @todays_tasks.each do |tdl| %>
   <li><%= tdl.deadline %>〜<%= tdl.name %></li>
